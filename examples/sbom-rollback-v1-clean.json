@@ -1,0 +1,47 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:golang/acme.io/release-console@1.0.0",
+      "name": "release-console",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:golang/github.com/acme/safe-lib@1.0.0",
+      "name": "safe-lib",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/acme.io/release-console@1.0.0",
+      "dependsOn": [
+        "pkg:golang/github.com/acme/safe-lib@1.0.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/acme/safe-lib@1.0.0",
+      "dependsOn": []
+    }
+  ]
+}

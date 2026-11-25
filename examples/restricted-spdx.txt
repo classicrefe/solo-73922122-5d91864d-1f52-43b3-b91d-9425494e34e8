@@ -1,0 +1,6 @@
+# Restricted SPDX license identifiers (one per line; # comments allowed)
+GPL-2.0-only
+GPL-3.0-only
+AGPL-3.0-only
+LGPL-3.0-only
+SSPL-1.0

@@ -1,0 +1,123 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:pypi/build-app@1.1.0",
+      "name": "build-app",
+      "version": "1.1.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/web-branch@1.0.0",
+      "name": "web-branch",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/data-branch@1.0.0",
+      "name": "data-branch",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/standalone-branch@1.0.0",
+      "name": "standalone-branch",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/shared-core@2.0.0",
+      "name": "shared-core",
+      "version": "2.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "AGPL-3.0-only"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/isolated-lib@1.0.0",
+      "name": "isolated-lib",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:pypi/build-app@1.1.0",
+      "dependsOn": [
+        "pkg:pypi/web-branch@1.0.0",
+        "pkg:pypi/data-branch@1.0.0",
+        "pkg:pypi/standalone-branch@1.0.0"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/web-branch@1.0.0",
+      "dependsOn": [
+        "pkg:pypi/shared-core@2.0.0"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/data-branch@1.0.0",
+      "dependsOn": [
+        "pkg:pypi/shared-core@2.0.0"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/standalone-branch@1.0.0",
+      "dependsOn": [
+        "pkg:pypi/isolated-lib@1.0.0"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/shared-core@2.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/isolated-lib@1.0.0",
+      "dependsOn": []
+    }
+  ]
+}

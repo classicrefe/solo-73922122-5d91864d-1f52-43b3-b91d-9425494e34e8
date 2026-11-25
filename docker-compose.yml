@@ -1,0 +1,35 @@
+services:
+  api:
+    build: .
+    image: license-release-gate:1.0.0
+    container_name: license-release-gate
+    ports:
+      - "8000:8000"
+    environment:
+      LICENSE_CHECK_DB: /data/license_check.db
+    volumes:
+      - license-gate-data:/data
+    restart: unless-stopped
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=2).status == 200 else 1)"
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+
+  # Run the self-test suite inside the same image:
+  #   docker compose --profile test run --rm tests
+  tests:
+    build: .
+    image: license-release-gate:1.0.0
+    profiles: ["test"]
+    environment:
+      LICENSE_CHECK_DB: /tmp/compose-test.db
+    command: ["python", "-m", "pytest", "-q"]
+
+volumes:
+  license-gate-data:

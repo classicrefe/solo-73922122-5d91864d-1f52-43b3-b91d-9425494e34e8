@@ -1,0 +1,65 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:golang/acme.io/release-console@2.0.0",
+      "name": "release-console",
+      "version": "2.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:golang/github.com/acme/safe-lib@1.0.0",
+      "name": "safe-lib",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:golang/github.com/ext/copyleft-lib@3.0.0",
+      "name": "copyleft-lib",
+      "version": "3.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "GPL-3.0-only"
+          }
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/acme.io/release-console@2.0.0",
+      "dependsOn": [
+        "pkg:golang/github.com/acme/safe-lib@1.0.0",
+        "pkg:golang/github.com/ext/copyleft-lib@3.0.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/acme/safe-lib@1.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/ext/copyleft-lib@3.0.0",
+      "dependsOn": []
+    }
+  ]
+}

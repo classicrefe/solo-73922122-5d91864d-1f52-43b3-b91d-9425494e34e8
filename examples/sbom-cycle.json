@@ -1,0 +1,165 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:npm/order-service@1.0.0",
+      "name": "order-service",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/pricing-engine@3.2.1",
+      "name": "pricing-engine",
+      "version": "3.2.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/rule-core@2.0.0",
+      "name": "rule-core",
+      "version": "2.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/policy-store@1.2.0",
+      "name": "policy-store",
+      "version": "1.2.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/compliance-reports@0.9.0",
+      "name": "compliance-reports",
+      "version": "0.9.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "GPL-3.0-only"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/auth-gateway@4.0.0",
+      "name": "auth-gateway",
+      "version": "4.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/token-vault@2.2.0",
+      "name": "token-vault",
+      "version": "2.2.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "AGPL-3.0-only"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/metrics-collector@1.0.0",
+      "name": "metrics-collector",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:npm/order-service@1.0.0",
+      "dependsOn": [
+        "pkg:npm/pricing-engine@3.2.1",
+        "pkg:npm/auth-gateway@4.0.0",
+        "pkg:npm/metrics-collector@1.0.0"
+      ]
+    },
+    {
+      "ref": "pkg:npm/pricing-engine@3.2.1",
+      "dependsOn": [
+        "pkg:npm/rule-core@2.0.0"
+      ]
+    },
+    {
+      "ref": "pkg:npm/rule-core@2.0.0",
+      "dependsOn": [
+        "pkg:npm/policy-store@1.2.0",
+        "pkg:npm/compliance-reports@0.9.0"
+      ]
+    },
+    {
+      "ref": "pkg:npm/policy-store@1.2.0",
+      "dependsOn": [
+        "pkg:npm/rule-core@2.0.0",
+        "pkg:npm/compliance-reports@0.9.0"
+      ]
+    },
+    {
+      "ref": "pkg:npm/compliance-reports@0.9.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/auth-gateway@4.0.0",
+      "dependsOn": [
+        "pkg:npm/token-vault@2.2.0"
+      ]
+    },
+    {
+      "ref": "pkg:npm/token-vault@2.2.0",
+      "dependsOn": [
+        "pkg:npm/auth-gateway@4.0.0"
+      ]
+    },
+    {
+      "ref": "pkg:npm/metrics-collector@1.0.0",
+      "dependsOn": [
+        "pkg:npm/metrics-collector@1.0.0"
+      ]
+    }
+  ]
+}
